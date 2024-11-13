@@ -34,7 +34,7 @@ const About = () => {
                 <div className="p-6  ">
                   <div className="flex justify-center ">
                     <img src={name} className="h-4 w-4 mt-1 " alt="name"></img>
-                    <h1 className="ml-2">Divyanshu Verma</h1>
+                    <h1 className="ml-2">Shradha Seth</h1>
                   </div>
                   <div className="flex justify-center gap-10 mt-6 ">
                     <a href="https://github.com/divyanshuverma08">
@@ -61,7 +61,7 @@ const About = () => {
                 <div className="p-6  ">
                   <div className="flex justify-center ">
                     <img src={name} className="h-4 w-4 mt-1 " alt="name"></img>
-                    <h1 className="ml-2">Shubh Gupta</h1>
+                    <h1 className="ml-2">Eshani Ghori</h1>
                   </div>
                   <div className="flex justify-center gap-10 mt-6 ">
                     <a href="https://github.com/shubhgupta9">
@@ -88,7 +88,7 @@ const About = () => {
                 <div className="p-6  ">
                   <div className="flex justify-center ">
                     <img src={name} className="h-4 w-4 mt-1 " alt="name"></img>
-                    <h1 className="ml-2">Pranshu Saluja</h1>
+                    <h1 className="ml-2">Yash Phartyal</h1>
                   </div>
                   <div className="flex justify-center gap-10 mt-6 ">
                     <a href="https://github.com/Pranshu071">
@@ -115,7 +115,7 @@ const About = () => {
                 <div className="p-6 ">
                   <div className="flex justify-center ">
                     <img src={name} className="h-4 w-4 mt-1 " alt="name"></img>
-                    <h1 className="ml-2">Yash Chibber</h1>
+                    <h1 className="ml-2">Anshika Kumar</h1>
                   </div>
                   <div className="flex justify-center gap-10 mt-6 ">
                     <a href="">
