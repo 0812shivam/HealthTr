@@ -9,7 +9,7 @@ import React from "react";
 const PatientReports = (props) => {
   const navigate = useNavigate();
   const [dob, setDob] = useState("01/01/2006");
-  const [pdfFile, setPdfFile] = useState(null); // State to store the uploaded file
+  const [uploadedReports, setUploadedReports] = useState([]); // Array to store uploaded reports
   const [patient, setPatient] = useState({
     name: {
       firstName: "",
@@ -86,7 +86,10 @@ const PatientReports = (props) => {
     const file = event.target.files[0];
     if (file && file.type === "application/pdf") {
       const fileURL = URL.createObjectURL(file); // Create a blob URL for the file
-      setPdfFile(fileURL);
+      setUploadedReports((prevReports) => [
+        ...prevReports,
+        { name: file.name, url: fileURL },
+      ]);
     } else {
       alert("Please upload a valid PDF file.");
     }
@@ -150,35 +153,31 @@ const PatientReports = (props) => {
                     <h1>Prescription</h1>
                   </div>
                 </div>
-                {prescriptions.length > 0 ? (
-                  prescriptions.map((prescription) => {
-                    return (
-                      <PatientReportCompo
-                        prescription={prescription}
-                        setPrescriptionID={props.setPrescriptionID}
-                      />
-                    );
-                  })
+                {uploadedReports.length > 0 ? (
+                  uploadedReports.map((report, index) => (
+                    <div
+                      key={index}
+                      className="grid grid-cols-4 items-center py-2 border-b"
+                    >
+                      <div>{new Date().toLocaleDateString()}</div>
+                      <div>-</div>
+                      <div>-</div>
+                      <div>
+                        <a
+                          href={report.url}
+                          download={report.name}
+                          className="text-blue-500 underline"
+                        >
+                          {report.name}
+                        </a>
+                      </div>
+                    </div>
+                  ))
                 ) : (
-                  <div className="font-bold mt-3 mx-auto">
-                    No Record Found...
-                  </div>
+                  <div className="font-bold mt-3 mx-auto">No Record Found...</div>
                 )}
               </div>
             </div>
-            {/* Display the Uploaded PDF */}
-            {pdfFile && (
-              <div className="bg-gray-100 p-4 mt-4 rounded-lg shadow">
-                <h2 className="font-semibold text-lg mb-2">Uploaded Report:</h2>
-                <embed
-                  src={pdfFile}
-                  type="application/pdf"
-                  width="100%"
-                  height="500px"
-                  className="border"
-                />
-              </div>
-            )}
           </div>
         </div>
       </div>
